@@ -31,10 +31,10 @@ class Monster:
 
 def take_turn(attacker, defender):
   
-    # The attacker chooses a move
+    #The attacker chooses a move
     chosen_move = attacker.choose_move()
 
-    # Check if the move hits
+    #Check if the move hits
     hit_chance = random.random()
     if hit_chance <= chosen_move.accuracy:
         damage = chosen_move.calculate_damage(attacker, defender)
@@ -52,7 +52,7 @@ def battle(monster1, monster2):
     print(f"A wild battle has begun between {monster1.name} and {monster2.name}!")
     
     while not monster1.is_fainted() and not monster2.is_fainted():
-        # Determine who goes first based on Speed
+        #Determine who goes first based on Speed
         if monster1.speed >= monster2.speed:
             take_turn(monster1, monster2)
             if monster2.is_fainted():
@@ -64,7 +64,6 @@ def battle(monster1, monster2):
                 break
             take_turn(monster1, monster2)
 
-    # Announce the result
     if monster1.is_fainted() and monster2.is_fainted():
         print("It's a tie—both monsters fainted!")
     elif monster1.is_fainted():
